@@ -1,0 +1,33 @@
+# Build folders
+build/
+build-debug/
+build-release/
+cmake-build-*/
+CMakeFiles/
+CMakeCache.txt
+
+# Executables
+*.exe
+*.out
+*.o
+*.obj
+*.a
+*.so
+*.dll
+*.dylib
+
+# VS Code
+.vscode/
+*.code-workspace
+
+# MacOS files
+.DS_Store
+
+# Logs
+*.log
+
+# Cache files
+*.cache
+
+# Generated files
+compile_commands.json

@@ -12,4 +12,5 @@ file(GLOB SOURCES
 )
 
 add_executable(cache_system ${SOURCES})
-# add_executable(lru_test src/testLRUCache.cpp src/LRUCache.cpp)
+add_executable(lru_test tests/testLRUCache.cpp src/LRUCache.cpp)
+add_executable(lfu_test tests/testLFUCache.cpp src/LFUCache.cpp)

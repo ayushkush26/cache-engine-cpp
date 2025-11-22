@@ -36,9 +36,35 @@ LRUCache::Node* LRUCache::removeLast(){
 }
 
 int LRUCache::get(int key){
-    return -1;
+    if (mp.find(key) == mp.end()){
+        return -1;
+    }
+
+    Node* node = mp[key];
+    moveToFront(node);
+    return node->value;
+    
 }
 
 void LRUCache::put(int key,int value){
+    // CASE 1 -> Key already exists
+    if (mp.find(key) != mp.end()){
 
+        Node* node = mp[key];
+        node->value = value;
+        moveToFront(node);
+        return;
+    }
+
+    // CASE 2 -> New Key
+    if (mp.size() == capacity){
+        Node* lru = removeLast();     // it will remove the least recently used
+        mp.erase(lru->key);
+        delete lru;
+    }
+
+    Node* newNode = new Node(key,value);
+    addToFront(newNode);
+    mp[key] = newNode;
+    
 }
